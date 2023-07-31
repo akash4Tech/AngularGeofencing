@@ -1,0 +1,139 @@
+#location-setting{
+    height: calc(100vh - 64px);
+    overflow: scroll;
+
+    .location-wrapper{
+        padding: 38px 45px;
+
+        .header {
+            color: #27375D;
+            font-size: 28px;
+            font-weight: 600;
+            padding-bottom: 12px;
+        }
+
+        .content {
+            color: #27375D;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+    .add-btn{
+        display: flex;
+        padding: 36px 0px 24px 0px;
+    }
+    .map-wrapper{
+        display: flex;
+        .maplist{
+            width: 30%;
+            padding-right: 28px;
+            .search-location {
+                width: 100% !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                .location-from{
+                    .form-group {
+                        color: #333;
+                        font-size: 14px;
+                        font-weight: 500;
+                        padding-top: 13px;
+                        .label{
+                            padding-bottom: 6px;
+                            color: #333;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                        .meters{
+                            font-weight: 400;
+                            font-size: 12px;
+                            color: #333333;
+                            padding-bottom: 14px;
+                        }
+                        .map-search {
+                            // position: relative;
+                            width: 100%;
+                            height: 32px;
+                            border-radius: 3px;
+                            border: 1px solid var(--centum-gray-4, #B8C3C9);
+                            background: #FFF;
+
+                        }
+
+                        .p-inputtext {
+                            font-size: 12px;
+                            color: #000000;
+                        }
+                    }
+                }
+              
+                .location-btn{
+                    flex-direction: row;
+                    gap: 17px;
+                }
+                .location-card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 9px;
+                    border-bottom: 1px solid #666666;
+                    padding: 4px 0px;
+                    .loc-name {
+                        color: #000;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                    .loc-radius {
+                        overflow: hidden;
+                        color: #666;
+                        text-overflow: ellipsis;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                    }
+
+                    .loc-card-editor {
+                        display: flex;
+                        gap: 24px;
+                        margin-bottom: 15px;
+                        .icon{
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+            }
+        }
+        .map{
+            width: 70%;
+            .google-map{
+                height: 474px;
+                border-radius: 4px;
+                border: 1px solid #E0E0E0;
+                position: relative;
+                .current-loc {
+                    bottom: 60px;
+                    left: 12px;
+                    position: absolute;
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 10px;
+                    border: 1px solid #E0E0E0;
+                    background: #FFFFFF;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+            
+                }
+            }
+
+            
+        }
+    }
+    .save-location{
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 14px;
+    }
+}

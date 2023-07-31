@@ -1,0 +1,74 @@
+<div id="location-setting">
+    <div class="location-wrapper">
+        <div class="header">Office Location</div>
+        <div class="content">Add your offices or places where your team members will beclocking in and out.</div>
+   
+    <div class="add-btn">
+        <p-button styleClass="custom-btn save" type="button" (click)="addLocationBolean()" label="+Add Location"></p-button>
+    </div>
+    <div class="map-wrapper">
+            <div class="maplist">
+            <div  class="search-location">
+                <div class="location-from">
+                    <div class="form-group">
+                        <input type="text" class="p-inputtext map-search"
+                            placeholder="Enter Location"
+                            (change)="onAddressChange($event)" pInputText />
+                    </div>
+                    <div class="form-group">
+                        <label class="label" for="">Location Name</label>
+                        <input type="text" class="p-inputtext map-search" 
+                            pInputText placeholder="Enter Location Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="label" for="">Meter Radius</label>
+                        <div class="meters">Meters : 15 - {{range}}</div>
+                    </div>
+                </div>
+               
+                <div class="form-group location-btn">
+                    <p-button styleClass="custom-btn cancel"  type="button"
+                    (click)="cancelLocation()" label="Cancel"></p-button>
+                    <!-- <p-button styleClass="custom-btn save" *ngIf="!editAddress" type="button"
+                        (click)="addLocation()" label="+Add Location"></p-button> -->
+                    <p-button styleClass="custom-btn save"  type="button"
+                     (click)="updateLocation()" label="Update Location"></p-button>
+                </div>
+            </div>
+            <div class="location-cards" *ngIf="locationCard">
+                <div *ngFor="let location of locationList;  let i = index" class="search-location">
+                    <div class="location-card">
+                        <span class="loc-name">{{location.name}}</span>
+                        <span class="loc-radius">Radius: {{location.meters}}M</span>
+                        <span class="loc-radius">{{location.address}}</span>
+                        <div class="loc-card-editor">
+                            <img class="icon" (click)="addressEdit(i)" src="../../../assets/edit-icon.svg"
+                                alt="">
+                            <img class="icon" (click)="adressDelete(i)" src="../../../assets/delete.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="map">
+                <div class="google-map">
+                    <google-map [options]="mapOptions" >  
+                         <!-- (mapClick)="onMapClick()" -->
+                        <map-marker *ngFor="let location of locations"
+                            [position]="location.position"></map-marker>
+                        <map-circle *ngFor="let location of locations" [center]="location.position"
+                            [radius]="range"
+                            [options]="{ fillColor: '#0000FF', strokeColor: '#0000FF' }"></map-circle>
+                    </google-map>
+                    <div (click)="getCurrentLocation()" class="current-loc">
+                        <img class="location-img" src="../../../assets/current-location.svg" alt="">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="save-location">
+        <p-button styleClass="custom-btn save"  type="button"
+                     (click)="saveLocation()" label="Save Location"></p-button>
+    </div>
+</div>
+</div>
